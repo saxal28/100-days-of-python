@@ -23,22 +23,18 @@ def str_insert(string, char, index):
 # build random letters first
 random_letters = ""
 for number in range(1, nr_letters + 1):
-    random_index = random.randint(0, len(letters) - 1)
-    random_letter = letters[random_index]
-    random_letters += random_letter
-    
+    random_letters += random.choice(letters)
+
 # build random numbers & insert at random index
 for number in range(1, nr_numbers + 1):
-    random_index = random.randint(0, len(numbers) - 1)
-    random_number = numbers[random_index]
+    random_number = random.choice(numbers)
     # insert at random index
     random_letters_index = random.randint(0, len(random_letters) - 1)
     random_letters = str_insert(random_letters, random_number, random_letters_index)
 
 # insert random symbols at random indexes
 for number in range(1, nr_symbols + 1):
-    random_index = random.randint(0, len(symbols) - 1)
-    random_symbol = symbols[random_index]
+    random_symbol = random.choice(symbols)
     # insert at random index
     random_symbols_index = random.randint(0, len(random_letters) - 1)
     random_letters = str_insert(random_letters, random_symbol, random_symbols_index)
